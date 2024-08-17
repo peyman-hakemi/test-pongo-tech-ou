@@ -1,23 +1,15 @@
-import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import { GameSessionForm, GameSessionList } from "./pages";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="max-w-4xl mx-auto p-8 ">
+      <h1 className="text-4xl font-bold mb-8">Game Session Manager</h1>
+      <Routes>
+        <Route path="/" element={<GameSessionList />} />
+        <Route path="/create" element={<GameSessionForm />} />
+      </Routes>
+    </div>
   );
 }
 
